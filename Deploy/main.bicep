@@ -106,7 +106,7 @@ resource container 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/container
       id: containerName
       partitionKey: {
         paths: [
-          '/myPartitionKey'
+          '/type'
         ]
         kind: 'Hash'
       }
@@ -117,48 +117,8 @@ resource container 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/container
             path: '/*'
           }
         ]
-        excludedPaths: [
-          {
-            path: '/myPathToNotIndex/*'
-          }
-          {
-            path: '/_etag/?'
-          }
-        ]
-        compositeIndexes: [
-          [
-            {
-              path: '/name'
-              order: 'ascending'
-            }
-            {
-              path: '/age'
-              order: 'descending'
-            }
-          ]
-        ]
-        spatialIndexes: [
-          {
-            path: '/path/to/geojson/property/?'
-            types: [
-              'Point'
-              'Polygon'
-              'MultiPolygon'
-              'LineString'
-            ]
-          }
-        ]
       }
       defaultTtl: 86400
-      uniqueKeyPolicy: {
-        uniqueKeys: [
-          {
-            paths: [
-              '/phoneNumber'
-            ]
-          }
-        ]
-      }
     }
     options: {
       autoscaleSettings: {

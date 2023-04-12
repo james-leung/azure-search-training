@@ -1,13 +1,11 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Azure;
 using Azure.Search.Documents.Indexes;
 using Azure.Search.Documents.Indexes.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Rest.Azure;
 
-namespace AzureSearchTraining
+namespace AzureSearchTraining.Deploy
 {
     public sealed class Program
     {
